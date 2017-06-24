@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-
-import { MyComponent } from 'react-library-starter';
 import Basic from '../../../lib/Basic';
 
 import logo from './logo.svg';

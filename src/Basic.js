@@ -42,10 +42,10 @@ const Label = styled.label`
             .filler::before{
               position: absolute;
               content: '';
-              left:4px;
-              top: 1px;
-              width: 5px;
-              height:10px;
+              left: .25rem;
+              top: 0.06rem;
+              width: .38rem;
+              height: .63rem;
               border: solid #fff;
               border-width: 0px 2px 2px 0px;
               -webkit-transform: rotate(45deg);
@@ -64,11 +64,10 @@ const Label = styled.label`
             }
             .title{
               vertical-align: bottom;
-              font-size: 14px;
-              padding-left: 6px;
+              font-size: .9rem;
+              padding-left: .3rem;
               color: #212121;
               display: inline-block;
-              width: calc(100% - (14px + 11px));
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
