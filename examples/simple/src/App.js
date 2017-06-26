@@ -30,10 +30,10 @@ class App extends Component {
         </div>
         <div>
           <div>
-            <Basic labelText="basic" className="basic"
+            <Basic size={2}
+                   labelText="basic" className="basic"
                    checked={this.state.basic}
-                   value="0"
-                   name="basic" id="basic"
+                   value="0" name="basic" id="basic"
                    onChangeFunc={this.genricChangeHandler} />
           </div>
         </div>

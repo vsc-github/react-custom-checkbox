@@ -29,8 +29,12 @@ const Label = styled.label`
             }
             .filler{
               position: relative;
-              width: 1rem;
-              height: 1rem;
+              width: ${(props) => {
+                return props.size === undefined ? '1rem' : `${props.size}rem;`;
+  }}
+              height: ${(props) => {
+                return props.size === undefined ? '1rem' : `${props.size}rem;`;
+  }}
               background-color: transparent;
               border: 1.4px solid #c2c2c2;
               border-radius: 1.5px;
@@ -42,10 +46,18 @@ const Label = styled.label`
             .filler::before{
               position: absolute;
               content: '';
-              left: .25rem;
-              top: 0.06rem;
-              width: .38rem;
-              height: .63rem;
+              left: ${(props) => {
+                return props.size === undefined ? '.25rem' : `${props.size * 0.25}rem;`;
+  }}
+              top: ${(props) => {
+                return props.size === undefined ? '.06rem' : `${props.size * 0.06}rem;`;
+  }}
+              width: ${(props) => {
+                return props.size === undefined ? '.38rem' : `${props.size * 0.38}rem;`;
+  }}
+              height: ${(props) => {
+                return props.size === undefined ? '.63rem' : `${props.size * 0.63}rem;`;
+  }}
               border: solid #fff;
               border-width: 0px 2px 2px 0px;
               -webkit-transform: rotate(45deg);
@@ -77,8 +89,8 @@ const Label = styled.label`
 `;
 
 
-const CheckBox = ({ labelText, checked, onChangeFunc, className, value, name, id }) =>
-  <Label className={className}>
+const CheckBox = ({ labelText, checked, onChangeFunc, className, value, name, id, size }) =>
+  <Label className={className} size={size}>
     <input
       value={value} checked={checked} onChange={onChangeFunc} type="checkbox" name={name} id={id}
     />
@@ -93,8 +105,9 @@ CheckBox.propTypes = {
   labelText: PropTypes.string,
   checked: PropTypes.bool,
   onChangeFunc: PropTypes.func,
-  wrapperClassName: PropTypes.string,
+  className: PropTypes.string,
   value: PropTypes.string,
+  size: PropTypes.number,
 };
 
 export default CheckBox;
