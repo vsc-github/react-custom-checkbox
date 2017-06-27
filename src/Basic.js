@@ -3,8 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Label = styled.label`
+            
+            display: flex;
+            align-items: center;
             position: relative;
             text-align: left;
+            user-select: none;
             input{
               visibility: hidden;
               position: absolute;

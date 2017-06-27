@@ -29,8 +29,8 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div>
-          <div>
-            <Basic size={2}
+          <div style={{ 'padding' : '5rem'}}>
+            <Basic size={1.5}
                    labelText="basic" className="basic"
                    checked={this.state.basic}
                    value="0" name="basic" id="basic"
