@@ -62,7 +62,11 @@ const Label = styled.label`
               height: ${(props) => {
                 return props.size === undefined ? '.63rem' : `${props.size * 0.63}rem;`;
   }}
-              border: solid #fff;
+  
+              border-color: ${(props) => {
+                return props.accentColor === undefined ? '#ffffff;' : `${props.accentColor};`;
+  }}
+              border-style: solid;
               border-width: 0px 2px 2px 0px;
               -webkit-transform: rotate(45deg);
               transform: rotate(45deg);
@@ -71,8 +75,12 @@ const Label = styled.label`
               display: none;
             }
             input:checked + .filler{
-              background: #707070;
-              border: #707070;
+              background: ${(props) => {
+                return props.baseColor === undefined ? '#707070;' : `${props.baseColor};`;
+  }}
+              border: ${(props) => {
+                return props.baseColor === undefined ? '#707070;' : `${props.baseColor};`;
+  }}
             }
 
             input:checked + .filler::before{
@@ -93,8 +101,8 @@ const Label = styled.label`
 `;
 
 
-const CheckBox = ({ labelText, checked, onChangeFunc, className, value, name, id, size }) =>
-  <Label className={className} size={size}>
+const CheckBox = ({ labelText, checked, onChangeFunc, className, value, name, id, size, baseColor, accentColor }) =>
+  <Label className={className} size={size}  baseColor={baseColor} accentColor={accentColor} >
     <input
       value={value} checked={checked} onChange={onChangeFunc} type="checkbox" name={name} id={id}
     />
@@ -112,6 +120,8 @@ CheckBox.propTypes = {
   className: PropTypes.string,
   value: PropTypes.string,
   size: PropTypes.number,
+  baseColor: PropTypes.string,
+  accentColor: PropTypes.string,
 };
 
 export default CheckBox;
