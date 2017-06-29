@@ -31,6 +31,8 @@ class App extends Component {
         <div>
           <div style={{ 'padding' : '5rem'}}>
             <Basic size={1.5}
+                   baseColor="#FF4848"
+                   accentColor="#FBF9FF"
                    labelText="basic" className="basic"
                    checked={this.state.basic}
                    value="0" name="basic" id="basic"
