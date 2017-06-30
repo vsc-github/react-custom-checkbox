@@ -88,7 +88,9 @@ const Label = styled.label`
             }
             .title{
               vertical-align: bottom;
-              font-size: .9rem;
+              font-size: ${(props) => {
+                return props.size === undefined ? '.9rem' : `${props.size * 0.66}rem;`;
+  }}
               padding-left: .3rem;
               color: #212121;
               display: inline-block;
@@ -102,7 +104,7 @@ const Label = styled.label`
 
 
 const CheckBox = ({ labelText, checked, onChangeFunc, className, value, name, id, size, baseColor, accentColor }) =>
-  <Label className={className} size={size}  baseColor={baseColor} accentColor={accentColor} >
+  <Label className={className} size={size} baseColor={baseColor} accentColor={accentColor} >
     <input
       value={value} checked={checked} onChange={onChangeFunc} type="checkbox" name={name} id={id}
     />
