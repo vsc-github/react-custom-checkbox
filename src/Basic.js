@@ -51,16 +51,16 @@ const Label = styled.label`
               position: absolute;
               content: '';
               left: ${(props) => {
-                return props.size === undefined ? '.25rem' : `${props.size * 0.25}rem;`;
+                return props.size === undefined ? '.25rem;' : `${props.size * 0.25}rem;`;
   }}
               top: ${(props) => {
-                return props.size === undefined ? '.06rem' : `${props.size * 0.06}rem;`;
+                return props.size === undefined ? '.06rem;' : `${props.size * 0.06}rem;`;
   }}
               width: ${(props) => {
-                return props.size === undefined ? '.38rem' : `${props.size * 0.38}rem;`;
+                return props.size === undefined ? '.38rem;' : `${props.size * 0.38}rem;`;
   }}
               height: ${(props) => {
-                return props.size === undefined ? '.63rem' : `${props.size * 0.63}rem;`;
+                return props.size === undefined ? '.63rem;' : `${props.size * 0.63}rem;`;
   }}
   
               border-color: ${(props) => {
@@ -88,11 +88,13 @@ const Label = styled.label`
             }
             .title{
               vertical-align: bottom;
+              color: ${(props) => {
+                return props.textColor === undefined ? '#707070;' : `${props.textColor};`;
+  }}
               font-size: ${(props) => {
-                return props.size === undefined ? '.9rem' : `${props.size * 0.66}rem;`;
+                return props.size === undefined ? '.9rem;' : `${props.size * 0.66}rem;`;
   }}
               padding-left: .3rem;
-              color: #212121;
               display: inline-block;
               white-space: nowrap;
               overflow: hidden;
@@ -103,8 +105,12 @@ const Label = styled.label`
 `;
 
 
-const CheckBox = ({ labelText, checked, onChangeFunc, className, value, name, id, size, baseColor, accentColor }) =>
-  <Label className={className} size={size} baseColor={baseColor} accentColor={accentColor} >
+const CheckBox = ({ labelText, textColor, checked, onChangeFunc,
+                    className, value, name, id, size, baseColor, accentColor }) =>
+  <Label
+    className={className} size={size} baseColor={baseColor}
+    accentColor={accentColor} textColor={textColor}
+  >
     <input
       value={value} checked={checked} onChange={onChangeFunc} type="checkbox" name={name} id={id}
     />
@@ -117,6 +123,7 @@ CheckBox.propTypes = {
   name: PropTypes.string,
   id: PropTypes.string,
   labelText: PropTypes.string,
+  textColor: PropTypes.string,
   checked: PropTypes.bool,
   onChangeFunc: PropTypes.func,
   className: PropTypes.string,
